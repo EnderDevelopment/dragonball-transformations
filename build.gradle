@@ -1,0 +1,30 @@
+plugins {
+    id 'fabric-loom' version '1.0-SNAPSHOT'
+    id 'maven-publish'
+}
+
+group = 'com.example'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'Fabric'
+        url = 'https://maven.fabricmc.net/'
+    }
+}
+
+dependencies {
+    minecraft 'com.mojang:minecraft:1.20.1'
+    mappings 'net.fabricmc:yarn:1.20.1+build.1:v2'
+    modImplementation 'net.fabricmc:fabric-loader:0.14.0'
+}
+
+processResources {
+    inputs.property "version", project.version
+}
+
+loom {
+    minecraftVersion = '1.20.1'
+    runDir = 'run'
+}
